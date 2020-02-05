@@ -12,14 +12,15 @@ export const getCharacter = () => {
 
 export const getCharacterByStatus = (status) => {
   return fetch(`https://rickandmortyapi.com/api/character/?status=${status}`)
-    .then(characters => characters.map({
-      
-    }));  
-  
-  // .then(res => res.json());
+    .then(res => res.json())
+    .then(characters => characters.results.map({
+      name,
+      status,
+      image
+    }));
 
 
-
+    
   // .then(({ image, name }) => {
   //   image,
   //   name,
