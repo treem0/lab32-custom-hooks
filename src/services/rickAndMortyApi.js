@@ -3,8 +3,26 @@ export const getCharacter = () => {
 
   return fetch(`https://rickandmortyapi.com/api/character/${randomNum}`)
     .then(res => res.json())
-    .then(({ image, name }) => ({
+    .then(({ image, name, status }) => ({
       image,
-      name
+      name,
+      status
     }));
+};
+
+export const getCharacterByStatus = (status) => {
+  return fetch(`https://rickandmortyapi.com/api/character/?status=${status}`)
+    .then(characters => characters.map({
+      
+    }));  
+  
+  // .then(res => res.json());
+
+
+
+  // .then(({ image, name }) => {
+  //   image,
+  //   name,
+  //   status;
+  // });
 };

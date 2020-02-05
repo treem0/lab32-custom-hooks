@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Character = ({ image, name, }) => (
+const Character = ({ image, name, status }) => (
   <article>
     <div>
       <div>
@@ -10,6 +10,7 @@ const Character = ({ image, name, }) => (
       </div>
       <div>
         <h2>{name}</h2>
+        <h3>{status}</h3>
       </div>
     </div>
   </article>
@@ -17,7 +18,8 @@ const Character = ({ image, name, }) => (
 
 Character.propTypes = {
   image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired
 };
 
 export default Character;
