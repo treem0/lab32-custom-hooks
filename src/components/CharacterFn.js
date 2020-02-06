@@ -1,7 +1,6 @@
 import React from 'react';
 import Character from '../components/Character';
 import { useCharacters } from '../hooks/characters';
-import { getCharactersByStatus } from '../services/rickAndMortyApi';
 
 
 const CharacterFn = () => {
