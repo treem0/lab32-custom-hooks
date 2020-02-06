@@ -10,19 +10,18 @@ export const getCharacter = () => {
     }));
 };
 
-export const getCharacterByStatus = (status) => {
+export const getCharactersByStatus = (status) => {
   return fetch(`https://rickandmortyapi.com/api/character/?status=${status}`)
     .then(res => res.json())
     .then(characters => characters.results.map(character => {
       return {
+        id: character.id,
         name: character.name,
         status: character.status,
         image: character.image
       };
     }));
 
-
-    
   // .then(({ image, name }) => {
   //   image,
   //   name,

@@ -1,16 +1,17 @@
 import React from 'react';
 import Character from '../components/Character';
 import { useCharacters } from '../hooks/characters';
+import { getCharactersByStatus } from '../services/rickAndMortyApi';
 
 
 const CharacterFn = () => {
-  const { character, handleCharChange, value, handleValueChange } = useCharacters();
+  const { characters, handleCharChange, value, handleValueChange } = useCharacters();
 
-  // const characterItem = characters.map((character) => (
-  //   <li key={character.name} >
-  //     <Character name={character.name} image={character.image} status={character.status} />
-  //   </li>
-  // ));
+  const characterItem = characters.map((character) => (
+    <li key={character.id} >
+      <Character name={character.name} image={character.image} status={character.status} />
+    </li>
+  ));
 
   return (
     <>
@@ -20,7 +21,9 @@ const CharacterFn = () => {
         <option value="unknown" name="unknown">Unknown</option>
       </select>
       <button onClick={handleCharChange}>New Character</button>
-      <Character image={character.image} name={character.name} status={character.status}/>
+      <ul>
+        {characterItem}
+      </ul>
     </>
   );
     

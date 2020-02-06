@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 
 const Character = ({ image, name, status }) => (
   <article>
-    <div>
+    <ul>
       <div>
-        <img src={image}>
-        </img>
+        <div>
+          <img src={image}>
+          </img>
+        </div>
+        <div>
+          <h2>{name}</h2>
+          <h3>{status}</h3>
+        </div>
       </div>
-      <div>
-        <h2>{name}</h2>
-        <h3>{status}</h3>
-      </div>
-    </div>
+    </ul>
   </article>
 );
 

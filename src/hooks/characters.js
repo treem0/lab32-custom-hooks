@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react';
-import { getCharacter, getCharacterByStatus } from '../services/rickAndMortyApi';
+import { getCharacter, getCharactersByStatus } from '../services/rickAndMortyApi';
 
 
 export const useCharacters = () => {
-  const [character, updateCharacter] = useState({
-    image: '',
-    name: '',
-    status: ''
-  });
+  const [characters, updateCharacters] = useState([]);
   const [value, setValue] = useState('alive');
 
   useEffect(() => {
@@ -15,14 +11,13 @@ export const useCharacters = () => {
   }, []);
 
   const handleCharChange = () => {
-    getCharacterByStatus(value)
-      .then(character => updateCharacter(character)
-      );
+    getCharactersByStatus(value)
+      .then(characters => updateCharacters(characters));
   };
   
   const handleValueChange = (value) => {
     setValue(value);
   };
 
-  return { character, handleCharChange, handleValueChange, value };
+  return { characters, handleCharChange, handleValueChange, value };
 };
